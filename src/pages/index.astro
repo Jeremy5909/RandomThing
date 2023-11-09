@@ -1,7 +1,8 @@
 ---
-import Thing from "../components/thing.astro";
-import PropertiesPanel from "../components/properties-panel.astro";
+import Thing from "../components/thing.svelte";
+import PropertiesPanel from "../components/properties-panel.svelte";
 ---
+
 
 <!doctype html>
 <html lang="en">
@@ -12,12 +13,17 @@ import PropertiesPanel from "../components/properties-panel.astro";
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Random Thing</title>
+		<script>
+			function clicked(){
+				console.log("working")
+			}
+		</script>
 	</head>
 	<body class=" bg-stone-900">
 		<div id="thing-layer">
-			<Thing class_name="light"/>
-			<Thing class_name="button"/>
+			<Thing class_name="light" id="1" client:load/>
+			<Thing class_name="button" id="2" client:load/>
 		</div>
-		<PropertiesPanel />
+		<PropertiesPanel client:load/>
 	</body>
 </html>
