@@ -1,0 +1,17 @@
+---
+import Draggable from "./Draggable.svelte";
+
+const { class_name } = Astro.props;
+const { img } = Astro.props;
+---
+
+<Draggable client:load>
+  <div class="bg-neutral-700 cursor-move rounded-full w-24 h-24 absolute flex select-none justify-center">
+    <img
+      draggable="false"
+      src={img}
+      alt={class_name}
+      class="m-3"
+    />
+  </div>
+</Draggable>
