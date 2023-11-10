@@ -19,12 +19,12 @@
   // Draggableness
   let moving = false;
 
-  let border_width = "0px";
+  let border_width = "0";
 
   $: if ($currentId === id) {
-    border_width = "2px";
+    border_width = "2";
   } else {
-    border_width = "0px";
+    border_width = "0";
   }
 
   function onMouseDown() {
@@ -50,7 +50,7 @@
 <div
   on:mousedown={onMouseDown}
   style=" left: {left}px; top: {top}px; background-color:{$colors[id]}"
-  class="cursor-move rounded-full w-24 h-24 absolute flex select-none justify-center border-[{border_width}]"
+  class="cursor-move rounded-full w-24 h-24 absolute flex select-none justify-center border-{border_width}"
 >
   <img
     draggable="false"
