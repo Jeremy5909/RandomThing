@@ -13,16 +13,11 @@ import PropertiesPanel from "../components/properties-panel.svelte";
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Random Thing</title>
-		<script>
-			function clicked(){
-				console.log("working")
-			}
-		</script>
 	</head>
 	<body class=" bg-stone-900">
 		<div id="thing-layer">
-			<Thing class_name="light" id="1" client:load/>
-			<Thing class_name="button" id="2" client:load/>
+			<Thing class_name="light" id="0" client:load/>
+			<Thing class_name="button" id="1" client:load/>
 		</div>
 		<PropertiesPanel client:load/>
 	</body>

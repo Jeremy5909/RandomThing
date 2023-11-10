@@ -1,7 +1,10 @@
 <script>
-  import { currentId, color} from "../stores";
+  import { currentId, colors, names, class_names} from "../stores";
   export let class_name = "default";
+  export let id;
 
+  $names[id]=class_name;
+  $class_names[id]=class_name;
   const minX = 0;
   const maxX = 400;
   const minY = 0;
@@ -14,7 +17,8 @@
 
   function onMouseDown() {
     moving = true;
-    currentId.set($$props.id);
+    currentId.set(id);
+    console.log($colors[id])
   }
 
   function onMouseMove(e) {
@@ -34,7 +38,7 @@
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 <div
   on:mousedown={onMouseDown}
-  style="left: {left}px; top: {top}px; background-color:{$color}"
+  style=" left: {left}px; top: {top}px; background-color:{$colors[id]}"
   class="cursor-move rounded-full w-24 h-24 absolute flex select-none justify-center"
 >
   <img
