@@ -16,9 +16,7 @@
   let left = Math.floor(Math.random() * (maxX - minX + 1) + minX);
   let top = Math.floor(Math.random() * (maxY - minY + 1) + minY);
 
-  // Draggableness
-  let moving = false;
-
+  // Selection
   let border_width = "0";
 
   $: if ($currentId === id) {
@@ -26,6 +24,9 @@
   } else {
     border_width = "0";
   }
+
+  // Draggableness
+  let moving = false;
 
   function onMouseDown() {
     moving = true;
