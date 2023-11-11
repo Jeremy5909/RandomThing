@@ -1,0 +1,43 @@
+<script>
+  import { class_names } from "../stores";
+
+  let shown = false;
+  let mouseX;
+  let mouseY;
+
+  let clickedX;
+  let clickedY;
+
+  function mouseMove(e) {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  }
+  function keydown(e) {
+    switch (e.key.toLowerCase()) {
+      case "a":
+        if (e.getModifierState("Shift")) {
+          clickedX = mouseX;
+          clickedY = mouseY;
+          shown = true;
+        }
+        break;
+      case "escape":
+        shown = false;
+    }
+  }
+</script>
+
+<svelte:window on:keydown={keydown} on:mousemove={mouseMove} />
+
+{#if shown}
+  <div
+    style="left:{clickedX}px; top:{clickedY}px;"
+    class="p-1 w-36 rounded absolute bg-gradient-to-br border-neutral-500 border-[1px] from-neutral-800 to-neutral-700 text-white"
+  >
+    <h1 class="font-bold">Create New:</h1>
+    <hr class=" border-neutral-700 my-1" />
+    {#each $class_names as c}
+      <p class="hover:bg-neutral-500 p-[0.125rem] rounded capitalize">{c}</p>
+    {/each}
+  </div>
+{/if}

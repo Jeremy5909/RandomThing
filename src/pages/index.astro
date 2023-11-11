@@ -2,6 +2,7 @@
 import Thing from "../components/thing.svelte";
 import PropertiesPanel from "../components/properties-panel.svelte";
 import CreateButton from "../components/create-button.svelte";
+import AddMenu from "../components/add-menu.svelte";
 ---
 
 <!doctype html>
@@ -21,5 +22,6 @@ import CreateButton from "../components/create-button.svelte";
       <Thing class_name="fan" id="2" client:load />
     </div>
     <PropertiesPanel client:load />
+    <AddMenu client:load />
   </body>
 </html>
