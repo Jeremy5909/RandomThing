@@ -1,5 +1,5 @@
 <script>
-  import { class_names } from "../stores";
+  import { allExistingThings, existingThing } from "../stores";
 
   let shown = false;
   let mouseX;
@@ -26,6 +26,13 @@
         shown = false;
     }
   }
+
+  function thingClicked(option) {
+    $allExistingThings.push(new existingThing(option, clickedX, clickedY));
+    $allExistingThings = $allExistingThings;
+
+    shown = false;
+  }
 </script>
 
 <svelte:window on:keydown={keydown} on:mousemove={mouseMove} />
@@ -37,12 +44,12 @@
   >
     <h1 class="font-bold">Create New</h1>
     <hr class=" border-neutral-700 my-1" />
-    {#each $class_names as c}
+    {#each ["light", "button", "fan"] as c}
       <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
       <!-- svelte-ignore a11y-click-events-have-key-events -->
       <p
         on:click={() => thingClicked(c)}
-        class="hover:bg-neutral-500 p-[0.125rem] rounded capitalize"
+        class="hover:bg-neutral-500 p-[0.125rem] rounded capitalize cursor-pointer active:bg-neutral-400 active:text-neutral-800"
       >
         {c}
       </p>
