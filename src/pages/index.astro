@@ -1,5 +1,6 @@
 ---
 import Thing from "../components/thing.svelte";
+import ThingLayer from "../components/thing-layer.svelte";
 import PropertiesPanel from "../components/properties-panel.svelte";
 import CreateButton from "../components/create-button.svelte";
 import AddMenu from "../components/add-menu.svelte";
@@ -16,11 +17,7 @@ import AddMenu from "../components/add-menu.svelte";
     <title>Random Thing</title>
   </head>
   <body class="bg-stone-900">
-    <div id="thing-layer">
-      <Thing class_name="light" id="0" client:load />
-      <Thing class_name="button" id="1" client:load />
-      <Thing class_name="fan" id="2" client:load />
-    </div>
+    <ThingLayer client:load />
     <PropertiesPanel client:load />
     <AddMenu client:load />
   </body>

@@ -15,10 +15,12 @@
   >
     <h1 class="font-bold capitalize text-5xl">{$names[$currentId]}</h1>
     <h2 class=" text-gray-400">Class: "{$class_names[$currentId]}"</h2>
+    <h2 class=" text-gray-400">id: "{"A"}"</h2>
+
     <label for="name" class="font-bold">Name: </label>
     <input
       type="text"
-      class="rounded-lg bg-neutral-500"
+      class="rounded-lg p-0.5 bg-neutral-500"
       id="name"
       name="name"
       bind:value={$names[$currentId]}
