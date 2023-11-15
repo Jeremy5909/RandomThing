@@ -6,7 +6,8 @@
 <div>
   {#each $allExistingThings as ting, i}
     <Thing
-      class_name={ting.itsclass}
+      classs={ting.itsclass}
+      color={ting.itscolor}
       id={i + 1}
       left={ting.itsleft}
       top={ting.itstop}

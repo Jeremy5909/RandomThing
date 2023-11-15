@@ -1,19 +1,20 @@
-<script>
-  import { allExistingThings, existingThing } from "../stores";
+<script lang="ts">
+  import { allExistingThings } from "../stores";
+  import { existingThing } from "./thing.svelte";
 
   let shown = false;
-  let mouseX;
-  let mouseY;
+  let mouseX: number;
+  let mouseY: number;
 
-  let clickedX;
-  let clickedY;
+  let clickedX: number;
+  let clickedY: number;
 
-  function mouseMove(e) {
+  function mouseMove(e: any) {
     mouseX = e.clientX;
     mouseY = e.clientY;
   }
 
-  function keydown(e) {
+  function keydown(e: any) {
     switch (e.key.toLowerCase()) {
       case "a":
         if (e.getModifierState("Shift")) {
@@ -27,8 +28,10 @@
     }
   }
 
-  function thingClicked(option) {
-    $allExistingThings.push(new existingThing(option, clickedX, clickedY));
+  function thingClicked(option: any) {
+    $allExistingThings.push(
+      new existingThing(option, option, clickedX, clickedY)
+    );
     $allExistingThings = $allExistingThings;
 
     shown = false;
