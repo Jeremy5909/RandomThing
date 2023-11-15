@@ -7,7 +7,7 @@
   export let left: number;
   export let top: number;
 
-  class existingThing {
+  export class existingThing {
     itsclass;
     itsname;
     itscolor = "525252";
@@ -27,8 +27,6 @@
       console.log("Yess King");
     }
   }
-
-  export { existingThing };
 
   // // Store props
   // $names[id] = class_name;
