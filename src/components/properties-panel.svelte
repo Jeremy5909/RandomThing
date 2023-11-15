@@ -1,20 +1,20 @@
 <script>
-  import { currentId, colors, names, class_names } from "../stores";
+  import { selectedId, colors, names, class_names } from "../stores";
 
   function onKeyDown(e) {
     if (e.key === "Escape") {
-      $currentId = undefined;
+      $selectedId = undefined;
     }
   }
 </script>
 
-{#if $currentId}
+{#if $selectedId}
   <div
     id="properties"
     class="text-white bg-neutral-600 absolute top-5 bottom-5 w-60 right-5 rounded-xl p-3"
   >
-    <h1 class="font-bold capitalize text-5xl">{$names[$currentId]}</h1>
-    <h2 class=" text-gray-400">Class: "{$class_names[$currentId]}"</h2>
+    <h1 class="font-bold capitalize text-5xl">{$names[$selectedId]}</h1>
+    <h2 class=" text-gray-400">Class: "{$class_names[$selectedId]}"</h2>
     <h2 class=" text-gray-400">id: "{"A"}"</h2>
 
     <label for="name" class="font-bold">Name: </label>
@@ -23,7 +23,7 @@
       class="rounded-lg p-0.5 bg-neutral-500"
       id="name"
       name="name"
-      bind:value={$names[$currentId]}
+      bind:value={$names[$selectedId]}
     />
     <label for="color" class="font-bold">Color: </label>
     <input
@@ -31,7 +31,7 @@
       class="border-2"
       id="color"
       name="color"
-      bind:value={$colors[$currentId]}
+      bind:value={$colors[$selectedId]}
     /><br />
   </div>
 {/if}

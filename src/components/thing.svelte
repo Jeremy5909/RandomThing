@@ -1,9 +1,9 @@
-<script>
-  import { currentId, colors, names, class_names } from "../stores";
-  export let class_name;
-  export let id;
-  export let left;
-  export let top;
+<script lang="ts">
+  import { selectedId, colors, names, class_names } from "../stores";
+  export let class_name: string;
+  export let id: number;
+  export let left: number;
+  export let top: number;
 
   // Store props
   $names[id] = class_name;
@@ -12,7 +12,7 @@
   // Selection
   let border_width = "0";
 
-  $: if ($currentId === id) {
+  $: if ($selectedId === id) {
     border_width = "2";
   } else {
     border_width = "0";
@@ -23,10 +23,10 @@
 
   function onMouseDown() {
     moving = true;
-    currentId.set(id);
+    selectedId.set(id);
   }
 
-  function onMouseMove(e) {
+  function onMouseMove(e: any) {
     if (moving) {
       left += e.movementX;
       top += e.movementY;
