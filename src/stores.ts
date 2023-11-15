@@ -1,15 +1,15 @@
-import { writable } from "svelte/store";
+import { writable, type Writable } from "svelte/store";
 
-export const currentId = writable();
+export const selectedId = writable();
 
-export const names = writable([]);
-export const class_names = writable([]);
-export const colors = writable(Array(20).fill("#525252"));
+export const names : Writable<string[]> = writable([]);
+export const class_names : Writable<string[]> = writable([]);
+export const colors : Writable<string[]> = writable(Array(20).fill("#525252"));
 
 export class existingThing {
-    itsclass: string;
-    itsleft: number;
-    itstop: number;
+    itsclass;
+    itsleft;
+    itstop;
     constructor(itsclass: string, itsleft:number, itstop:number)
     {
         this.itsclass = itsclass;
