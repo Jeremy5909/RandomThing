@@ -15,7 +15,7 @@
   >
     <h1 class="font-bold capitalize text-5xl">a</h1>
     <h2 class=" text-gray-400">Class: ""</h2>
-    <h2 class=" text-gray-400">id: "{"A"}"</h2>
+    <h2 class=" text-gray-400">id: ""</h2>
 
     <label for="name" class="font-bold">Name: </label>
     <input

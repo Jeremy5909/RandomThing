@@ -4,11 +4,11 @@
 </script>
 
 <div>
-  {#each $allExistingThings as ting, i}
+  {#each $allExistingThings as ting}
     <Thing
       classs={ting.itsclass}
       color={ting.itscolor}
-      id={i + 1}
+      id={ting.itsid}
       left={ting.itsleft}
       top={ting.itstop}
     />
