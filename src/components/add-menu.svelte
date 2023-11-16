@@ -46,7 +46,7 @@
   >
     <h1 class="font-bold">Create New</h1>
     <hr class=" border-neutral-700 my-1" />
-    {#each ["light", "button", "fan"] as c}
+    {#each ["light", "button", "fan", "number"] as c}
       <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
       <!-- svelte-ignore a11y-click-events-have-key-events -->
       <p

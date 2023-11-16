@@ -11,7 +11,7 @@ export class existingThing {
     itsleft;
     itscolor: string;
     itstop;
-    itsid;
+  itsid;
     constructor(
       itsclass: string,
       itsname: string,
