@@ -37,12 +37,10 @@
 
 <svelte:window on:mouseup={onMouseUp} on:mousemove={onMouseMove} />
 
+<!-- svelte-ignore a11y-no-static-element-interactions -->
 <div
-  role="treeitem"
-  aria-selected={moving}
-  tabindex="0"
   on:mousedown={onMouseDown}
-  style="left: {left - 48}px; top: {top - 48}px; background-color:#{color}"
+  style="left: {left - 48}px; top: {top - 48}px; background-color:{color}"
   class="cursor-move rounded-full w-24 h-24 absolute flex select-none justify-center border-{border_width}"
 >
   <img
