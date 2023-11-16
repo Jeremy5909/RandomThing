@@ -32,7 +32,7 @@
       class="border-2"
       id="color"
       name="color"
-      bind:value={currentClass.itscolor}
+      bind:value={$allExistingThings[$selectedId].itscolor}
     /><br />
   </div>
 {/if}
