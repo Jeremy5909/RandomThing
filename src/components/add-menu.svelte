@@ -1,6 +1,5 @@
 <script lang="ts">
-  import { allExistingThings } from "../stores";
-  import { existingThing } from "./thing.svelte";
+  import { allExistingThings, existingThing } from "../stores";
 
   let shown = false;
   let mouseX: number;
@@ -28,7 +27,7 @@
     }
   }
 
-  function thingClicked(option: any) {
+  function thingClicked(option: string) {
     $allExistingThings.push(
       new existingThing(option, option, clickedX, clickedY)
     );
