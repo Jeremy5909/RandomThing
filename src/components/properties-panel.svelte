@@ -18,7 +18,7 @@
     <h2 class=" text-gray-400">Class: "{currentClass.itsclass}"</h2>
     <h2 class=" text-gray-400">id: "{currentClass.itsid}"</h2>
 
-    <label for="name" class="font-bold">Name: {currentClass.itsname}</label>
+    <label for="name" class="font-bold">Name:</label>
     <input
       type="text"
       class="rounded-lg p-0.5 bg-neutral-500"
