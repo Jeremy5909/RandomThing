@@ -1,7 +1,7 @@
 <script lang="ts">
   import { selectedId, allExistingThings } from "../stores.ts";
 
-  function onKeyDown(e: any) {
+  function onKeyDown(e: KeyboardEvent) {
     if (e.key === "Escape") {
       $selectedId = -1;
     }

@@ -2,15 +2,13 @@
   import Thing from "./thing.svelte";
   import { allExistingThings, selectedId } from "../stores.ts";
 
-  function keydown(e: any) {
+  function keydown(e: KeyboardEvent) {
     if (e.key.toLowerCase() == "delete" || e.key.toLowerCase() == "backspace") {
       console.log($allExistingThings[$selectedId]);
-      // $allExistingThings.splice($selectedId, 1);
+      // $allExistingThings.splice($selectedId, 1)
       delete $allExistingThings[$selectedId];
     }
   }
-
-  function thingExists(name: string) {}
 </script>
 
 <svelte:window on:keydown={keydown} />

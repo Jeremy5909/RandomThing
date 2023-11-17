@@ -14,12 +14,12 @@
   let clickedX: number;
   let clickedY: number;
 
-  function mouseMove(e: any) {
+  function mouseMove(e: MouseEvent) {
     mouseX = e.clientX;
     mouseY = e.clientY;
   }
 
-  function keydown(e: any) {
+  function keydown(e: KeyboardEvent) {
     switch (e.key.toLowerCase()) {
       case "a":
         if (e.getModifierState("Shift")) {
