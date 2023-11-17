@@ -1,7 +1,16 @@
-<script>
+<script lang="ts">
   import Thing from "./thing.svelte";
-  import { allExistingThings } from "../stores.ts";
+  import { allExistingThings, selectedId } from "../stores.ts";
+
+  function keydown(e: any) {
+    if (e.key.toLowerCase() == "delete" || e.key.toLowerCase() == "backspace") {
+      console.log($allExistingThings[$selectedId]);
+      $allExistingThings.splice($selectedId, 1);
+    }
+  }
 </script>
+
+<svelte:window on:keydown={keydown} />
 
 <div>
   {#each $allExistingThings as ting}
@@ -11,6 +20,7 @@
       id={ting.itsid}
       left={ting.itsleft}
       top={ting.itstop}
+      IOs={ting.itsIO}
     />
   {/each}
 </div>
