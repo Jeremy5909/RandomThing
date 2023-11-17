@@ -1,5 +1,11 @@
 <script lang="ts">
-  import { allExistingThings, existingThing } from "../stores";
+  import {
+    IO,
+    IOKind,
+    IOType,
+    allExistingThings,
+    existingThing,
+  } from "../stores";
 
   let shown = false;
   let mouseX: number;
@@ -29,7 +35,9 @@
 
   function thingClicked(option: string) {
     $allExistingThings.push(
-      new existingThing(option, option, clickedX, clickedY)
+      new existingThing(option, option, clickedX, clickedY, [
+        new IO(IOKind.String, IOType.Input),
+      ])
     );
     $allExistingThings = $allExistingThings;
 
