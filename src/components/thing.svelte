@@ -1,11 +1,12 @@
 <script lang="ts">
-  import { IO, selectedId } from "../stores";
+  import { IOKind, selectedId } from "../stores";
   export let classs: string;
   export let color: string;
   export let id: number;
   export let left: number;
   export let top: number;
-  export let IOs: IO[] = [];
+  export let inputs: IOKind[];
+  export let outputs: IOKind[];
 
   // Selection
   let border_width = "0";
@@ -34,10 +35,6 @@
   function onMouseUp() {
     moving = false;
   }
-
-  function calculateIOPosition() {
-    let IOCount = IOs.length;
-  }
 </script>
 
 <svelte:window on:mouseup={onMouseUp} on:mousemove={onMouseMove} />
@@ -53,14 +50,20 @@
     <img
       draggable="false"
       src={"./icons/" + classs + ".svg"}
-      alt={classs}
-      class="m-3"
+      alt=""
+      class="m-3 text-white capitalize font-bold"
     />
   </div>
-  {#each IOs as io}
+  {#each inputs as input}
     <div
       style="left: {left - 52}px; top:{top - 8}px;"
       class="rounded-full bg-red-400 w-4 h-4 absolute"
+    />
+  {/each}
+  {#each outputs as output}
+    <div
+      style="left: {left + 44}px; top:{top - 8}px;"
+      class="rounded-full bg-green-400 w-4 h-4 absolute"
     />
   {/each}
 </div>

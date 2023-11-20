@@ -1,11 +1,6 @@
 <script lang="ts">
-  import {
-    IO,
-    IOKind,
-    IOType,
-    allExistingThings,
-    existingThing,
-  } from "../stores";
+  import { allExistingThings, existingThing, IOKind } from "../stores";
+  import thingKinds from "../thingKinds.json";
 
   let shown = false;
   let mouseX: number;
@@ -13,6 +8,12 @@
 
   let clickedX: number;
   let clickedY: number;
+
+  type thingKindType = {
+    name: string;
+    inputs: string[] | never[];
+    outputs: string[] | never[];
+  };
 
   function mouseMove(e: MouseEvent) {
     mouseX = e.clientX;
@@ -33,12 +34,28 @@
     }
   }
 
-  function thingClicked(option: string) {
+  function thingClicked(option: thingKindType) {
+    let inputs: IOKind[] = [];
+    let outputs: IOKind[] = [];
+    option.inputs.forEach((input) => {
+      inputs.push(IOKind.String);
+    });
+
+    option.outputs.forEach((input) => {
+      outputs.push(IOKind.String);
+    });
+
     $allExistingThings.push(
-      new existingThing(option, option, clickedX, clickedY, [
-        new IO(IOKind.String, IOType.Input),
-      ])
+      new existingThing(
+        option.name,
+        option.name,
+        clickedX,
+        clickedY,
+        inputs,
+        outputs
+      )
     );
+
     $allExistingThings = $allExistingThings;
 
     shown = false;
@@ -54,14 +71,14 @@
   >
     <h1 class="font-bold">Create New</h1>
     <hr class=" border-neutral-700 my-1" />
-    {#each ["light", "button", "fan", "number"] as c}
+    {#each thingKinds as thingKind}
       <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
       <!-- svelte-ignore a11y-click-events-have-key-events -->
       <p
-        on:click={() => thingClicked(c)}
+        on:click={() => thingClicked(thingKind)}
         class="hover:bg-neutral-500 p-[0.125rem] rounded capitalize cursor-pointer active:bg-neutral-400 active:text-neutral-800"
       >
-        {c}
+        {thingKind.name}
       </p>
     {/each}
   </div>

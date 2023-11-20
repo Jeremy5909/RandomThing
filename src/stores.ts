@@ -11,21 +11,6 @@ export enum IOKind {
   Boolean,
   Vector
 }
-
-export enum IOType {
-  Input,
-  Output
-}
-
-export class IO {
-  kind;
-  type;
-  constructor(kind: IOKind, type: IOType) {
-    this.kind = kind;
-    this.type = type;
-  }
-}
-
 export class existingThing {
   itsclass;
   itsname;
@@ -33,13 +18,15 @@ export class existingThing {
   itscolor: string;
   itstop;
   itsid;
-  itsIO;
+  itsInputs;
+  itsOutputs;
   constructor(
     itsclass: string,
     itsname: string,
     itsleft: number,
     itstop: number,
-    itsIO: IO[]
+    itsInputs: IOKind[],
+    itsOutputs: IOKind[]
     ) {
     this.itsclass = itsclass;
     this.itsname = itsname;
@@ -48,6 +35,7 @@ export class existingThing {
     this.itscolor = "#525252"
     lastId = lastId + 1;
     this.itsid = lastId;
-    this.itsIO = itsIO;
+    this.itsInputs = itsInputs;
+    this.itsOutputs = itsOutputs;
   }
 }

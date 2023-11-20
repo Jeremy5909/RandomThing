@@ -21,7 +21,8 @@
       id={ting.itsid}
       left={ting.itsleft}
       top={ting.itstop}
-      IOs={ting.itsIO}
+      inputs={ting.itsInputs}
+      outputs={ting.itsOutputs}
     />
   {/each}
 </div>
