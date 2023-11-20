@@ -56,13 +56,13 @@
   </div>
   {#each inputs as input}
     <div
-      style="left: {left - 52}px; top:{top - 8}px;"
+      style="left: {left - 48 - 8}px; top:{top - 8}px;"
       class="rounded-full bg-red-400 w-4 h-4 absolute"
     />
   {/each}
   {#each outputs as output}
     <div
-      style="left: {left + 44}px; top:{top - 8}px;"
+      style="left: {left + 48 - 8}px; top:{top - 8}px;"
       class="rounded-full bg-green-400 w-4 h-4 absolute"
     />
   {/each}
