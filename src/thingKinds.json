@@ -3,5 +3,6 @@
   { "name": "button", "inputs": [], "outputs": ["active"] },
   { "name": "fan", "inputs": ["speed"], "outputs": [] },
   { "name": "number", "inputs": [], "outputs": ["value"] },
-  { "name": "empty", "inputs": [], "outputs": [] }
+  { "name": "empty", "inputs": [], "outputs": [] },
+  { "name": "idk", "inputs": ["input"], "outputs": ["output"] }
 ]
