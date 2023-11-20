@@ -1,0 +1,7 @@
+[
+  { "name": "light", "inputs": ["active"], "outputs": [] },
+  { "name": "button", "inputs": [], "outputs": ["active"] },
+  { "name": "fan", "inputs": ["speed"], "outputs": [] },
+  { "name": "number", "inputs": [], "outputs": ["value"] },
+  { "name": "empty", "inputs": [], "outputs": [] }
+]
