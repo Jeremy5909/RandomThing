@@ -7,6 +7,7 @@
   export let top: number;
   export let inputs: IOKind[];
   export let outputs: IOKind[];
+  export let outputDragged: (e: DragEvent, x: number, y: number) => void;
 
   // Selection
   let border_width = "0";
@@ -63,7 +64,8 @@
   {#each outputs as output}
     <div
       style="left: {left + 48 - 8}px; top:{top - 8}px;"
-      class="rounded-full bg-green-400 w-4 h-4 absolute"
+      class="rounded-full bg-green-400 w-4 h-4 absolute cursor-pointer"
+      on:drag={(e) => outputDragged(e, left - 48 - 8, top - 8)}
     />
   {/each}
 </div>

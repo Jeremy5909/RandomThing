@@ -9,6 +9,10 @@
       delete $allExistingThings[$selectedId];
     }
   }
+
+  function outputDragged(e: DragEvent, x: number, y: number) {
+    console.log("hai :3");
+  }
 </script>
 
 <svelte:window on:keydown={keydown} />
@@ -23,6 +27,7 @@
       top={ting.itstop}
       inputs={ting.itsInputs}
       outputs={ting.itsOutputs}
+      {outputDragged}
     />
   {/each}
 </div>
